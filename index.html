@@ -476,6 +476,133 @@
       border-left: 4px solid #7c3aed;
     }
 
+    /* --- Exercises tab --- */
+    .exercise-scoreboard {
+      background: linear-gradient(135deg, #059669, #047857);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.25rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      align-items: center;
+    }
+
+    .exercise-scoreboard .score-item .number { font-size: 2rem; font-weight: 700; }
+    .exercise-scoreboard .score-item .label { font-size: 0.8rem; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.5px; }
+    .exercise-scoreboard .reset-btn { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 0.4rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.8rem; }
+    .exercise-scoreboard .reset-btn:hover { background: rgba(255,255,255,0.3); }
+
+    .exercise {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .exercise .ex-type {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .ex-type-fill { background: #dbeafe; color: #1d4ed8; }
+    .ex-type-quiz { background: #fce7f3; color: #be185d; }
+    .ex-type-translate { background: #d1fae5; color: #065f46; }
+
+    .exercise .ex-question {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .exercise .ex-context {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .exercise input[type="text"] {
+      width: 100%;
+      padding: 0.6rem 0.85rem;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .exercise input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .exercise .options { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .exercise .option-btn {
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-size: 0.93rem;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .exercise .option-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+    .exercise .option-btn.correct { border-color: #16a34a; background: #f0fdf4; color: #16a34a; font-weight: 600; }
+    .exercise .option-btn.wrong { border-color: #dc2626; background: #fef2f2; color: #dc2626; }
+    .exercise .option-btn:disabled { cursor: default; opacity: 0.85; }
+
+    .exercise .check-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      font-family: inherit;
+    }
+
+    .exercise .check-btn:hover { background: #1d4ed8; }
+    .exercise .check-btn:disabled { background: #94a3b8; cursor: default; }
+
+    .exercise .feedback {
+      margin-top: 0.75rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .exercise .feedback.show { display: block; }
+    .exercise .feedback.correct { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+    .exercise .feedback.wrong { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+
+    .exercise-category {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #059669;
+      margin: 2rem 0 1rem;
+      padding-left: 0.5rem;
+      border-left: 4px solid #059669;
+    }
+
     /* --- Responsive --- */
     @media (max-width: 600px) {
       body { padding: 1rem 0.5rem; }
@@ -484,6 +611,7 @@
       .score-summary { flex-direction: column; gap: 1rem; }
       .phrase-card { grid-template-columns: 1fr; }
       .expression-grid { grid-template-columns: 1fr; }
+      .exercise-scoreboard { flex-direction: column; gap: 1rem; }
       .tabs { overflow-x: auto; white-space: nowrap; }
       .tab-btn { font-size: 0.85rem; padding: 0.6rem 1rem; }
     }
@@ -501,6 +629,7 @@
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('material')">📚 Daily</button>
       <button class="tab-btn" onclick="switchTab('conversation')">💬 Conversación</button>
+      <button class="tab-btn" onclick="switchTab('exercises')">🎮 Ejercicios</button>
       <button class="tab-btn" onclick="switchTab('review')">🔴 Mis errores</button>
     </div>
 
@@ -1237,7 +1366,240 @@
 
     </div><!-- end tab-conversation -->
 
-    <!-- ==================== TAB 3: MIS ERRORES ==================== -->
+    <!-- ==================== TAB 3: EJERCICIOS ==================== -->
+    <div id="tab-exercises" class="tab-content">
+
+      <h2 class="section-title">🎮 Ejercicios interactivos</h2>
+
+      <div class="exercise-scoreboard" id="scoreboard">
+        <div class="score-item"><div class="number" id="sb-correct">0</div><div class="label">Aciertos</div></div>
+        <div class="score-item"><div class="number" id="sb-wrong">0</div><div class="label">Fallos</div></div>
+        <div class="score-item"><div class="number" id="sb-streak">0</div><div class="label">🔥 Racha</div></div>
+        <div class="score-item"><div class="number" id="sb-pct">0%</div><div class="label">Porcentaje</div></div>
+        <button class="reset-btn" onclick="resetScore()">↺ Reiniciar</button>
+      </div>
+
+      <!-- ===== TUS ERRORES REALES ===== -->
+      <h3 class="exercise-category">🔴 Basados en tus errores reales</h3>
+
+      <!-- Ex 1: the — fill -->
+      <div class="exercise" id="ex1">
+        <span class="ex-type ex-type-fill">Rellena</span>
+        <div class="ex-question">Yesterday I deployed ___ new version to ___ dev environment.</div>
+        <div class="ex-context">Completa con "the", "a" o déjalo vacío (escribe "-")</div>
+        <input type="text" id="ex1-input" placeholder="Escribe las dos respuestas separadas por coma: a, the">
+        <button class="check-btn" onclick="checkFill('ex1','a, the','Necesitas \"a\" (una versión nueva, no específica) y \"the\" (el entorno de dev, específico).')">Comprobar</button>
+        <div class="feedback" id="ex1-fb"></div>
+      </div>
+
+      <!-- Ex 2: deploy to — quiz -->
+      <div class="exercise" id="ex2">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">I need to deploy the release ___ staging.</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex2',this,'wrong')">A) deploy it in staging</button>
+          <button class="option-btn" onclick="checkQuiz('ex2',this,'correct')">B) deploy it to staging</button>
+          <button class="option-btn" onclick="checkQuiz('ex2',this,'wrong')">C) deploy it on staging</button>
+        </div>
+        <div class="feedback" id="ex2-fb"></div>
+      </div>
+
+      <!-- Ex 3: ran — quiz -->
+      <div class="exercise" id="ex3">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">Yesterday I ___ the regression tests.</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex3',this,'wrong')">A) run</button>
+          <button class="option-btn" onclick="checkQuiz('ex3',this,'correct')">B) ran</button>
+          <button class="option-btn" onclick="checkQuiz('ex3',this,'wrong')">C) runned</button>
+        </div>
+        <div class="feedback" id="ex3-fb"></div>
+      </div>
+
+      <!-- Ex 4: because vs because of — quiz -->
+      <div class="exercise" id="ex4">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">It's possible ___ the microservice is already prepared for multi-country.</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex4',this,'correct')">A) because</button>
+          <button class="option-btn" onclick="checkQuiz('ex4',this,'wrong')">B) because of</button>
+          <button class="option-btn" onclick="checkQuiz('ex4',this,'wrong')">C) cause of</button>
+        </div>
+        <div class="feedback" id="ex4-fb"></div>
+      </div>
+
+      <!-- Ex 5: translate — your error -->
+      <div class="exercise" id="ex5">
+        <span class="ex-type ex-type-translate">Traduce</span>
+        <div class="ex-question">Traduce: "Fue un error puntual, no requiere acción adicional"</div>
+        <input type="text" id="ex5-input" placeholder="Escribe en inglés...">
+        <button class="check-btn" onclick="checkTranslate('ex5',['it was a one-off issue','it was an isolated issue'],'no further action is needed','No digas \"puntual\" (falso amigo). Usa one-off issue o isolated issue.')">Comprobar</button>
+        <div class="feedback" id="ex5-fb"></div>
+      </div>
+
+      <!-- Ex 6: the — fill -->
+      <div class="exercise" id="ex6">
+        <span class="ex-type ex-type-fill">Rellena</span>
+        <div class="ex-question">I'll create a ticket for ___ architecture ___.</div>
+        <div class="ex-context">Completa los huecos</div>
+        <input type="text" id="ex6-input" placeholder="Escribe las dos respuestas separadas por coma">
+        <button class="check-btn" onclick="checkFill('ex6','the, team','Siempre \"the\" antes de equipo específico y añade \"team\": the architecture team.')">Comprobar</button>
+        <div class="feedback" id="ex6-fb"></div>
+      </div>
+
+      <!-- Ex 7: a vs an — quiz -->
+      <div class="exercise" id="ex7">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">I'll show ___ error case and ___ success case.</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex7',this,'correct')">A) an / a</button>
+          <button class="option-btn" onclick="checkQuiz('ex7',this,'wrong')">B) a / a</button>
+          <button class="option-btn" onclick="checkQuiz('ex7',this,'wrong')">C) an / an</button>
+        </div>
+        <div class="feedback" id="ex7-fb"></div>
+      </div>
+
+      <!-- ===== DAILY STANDUP ===== -->
+      <h3 class="exercise-category">📚 Daily Standup</h3>
+
+      <!-- Ex 8: translate -->
+      <div class="exercise" id="ex8">
+        <span class="ex-type ex-type-translate">Traduce</span>
+        <div class="ex-question">Traduce: "Ayer terminé la tarea y hoy voy a coger la siguiente del backlog"</div>
+        <input type="text" id="ex8-input" placeholder="Escribe en inglés...">
+        <button class="check-btn" onclick="checkTranslate('ex8',['yesterday i finished the task','yesterday i wrapped up the task'],'today i\\'ll pick up the next one from the backlog','pick up = coger tarea, wrap up = terminar. No digas \"take\" para coger tareas.')">Comprobar</button>
+        <div class="feedback" id="ex8-fb"></div>
+      </div>
+
+      <!-- Ex 9: carry over — fill -->
+      <div class="exercise" id="ex9">
+        <span class="ex-type ex-type-fill">Rellena</span>
+        <div class="ex-question">We should ___ this story ___ to the next sprint.</div>
+        <input type="text" id="ex9-input" placeholder="Dos palabras separadas por coma">
+        <button class="check-btn" onclick="checkFill('ex9','carry, over','carry over to = arrastrar al siguiente sprint. También vale spill over.')">Comprobar</button>
+        <div class="feedback" id="ex9-fb"></div>
+      </div>
+
+      <!-- Ex 10: by vs during — quiz -->
+      <div class="exercise" id="ex10">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">I'll finish it ___ the end of the day.</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex10',this,'correct')">A) by</button>
+          <button class="option-btn" onclick="checkQuiz('ex10',this,'wrong')">B) during</button>
+          <button class="option-btn" onclick="checkQuiz('ex10',this,'wrong')">C) for</button>
+        </div>
+        <div class="feedback" id="ex10-fb"></div>
+      </div>
+
+      <!-- Ex 11: translate -->
+      <div class="exercise" id="ex11">
+        <span class="ex-type ex-type-translate">Traduce</span>
+        <div class="ex-question">Traduce: "No tengo ningún bloqueo, todo va según lo previsto"</div>
+        <input type="text" id="ex11-input" placeholder="Escribe en inglés...">
+        <button class="check-btn" onclick="checkTranslate('ex11',['i don\\'t have any blockers','no blockers on my side'],'everything is on track','on track = según lo previsto. No digas \"all is going as planned\" (demasiado literal).')">Comprobar</button>
+        <div class="feedback" id="ex11-fb"></div>
+      </div>
+
+      <!-- Ex 12: was vs were — quiz -->
+      <div class="exercise" id="ex12">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">I think there ___ a similar task in the last sprint.</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex12',this,'correct')">A) was</button>
+          <button class="option-btn" onclick="checkQuiz('ex12',this,'wrong')">B) were</button>
+          <button class="option-btn" onclick="checkQuiz('ex12',this,'wrong')">C) has been</button>
+        </div>
+        <div class="feedback" id="ex12-fb"></div>
+      </div>
+
+      <!-- Ex 13: translate -->
+      <div class="exercise" id="ex13">
+        <span class="ex-type ex-type-translate">Traduce</span>
+        <div class="ex-question">Traduce: "10 de 80 tests fallaron, la mayoría en el módulo de scoring"</div>
+        <input type="text" id="ex13-input" placeholder="Escribe en inglés...">
+        <button class="check-btn" onclick="checkTranslate('ex13',['10 out of 80 tests failed'],'most of the failures are in the scoring module','X out of Y tests failed. No olvides \"the\" en most of the failures.')">Comprobar</button>
+        <div class="feedback" id="ex13-fb"></div>
+      </div>
+
+      <!-- ===== CONVERSACIÓN REAL ===== -->
+      <h3 class="exercise-category">💬 Conversación real</h3>
+
+      <!-- Ex 14: translate -->
+      <div class="exercise" id="ex14">
+        <span class="ex-type ex-type-translate">Traduce</span>
+        <div class="ex-question">Traduce: "¿Tienes un momento? Necesito tu ayuda con algo"</div>
+        <input type="text" id="ex14-input" placeholder="Escribe en inglés...">
+        <button class="check-btn" onclick="checkTranslate('ex14',['do you have a minute','hey, do you have a minute'],'i need your help with something','\"Do you have a minute?\" es la forma más natural.')">Comprobar</button>
+        <div class="feedback" id="ex14-fb"></div>
+      </div>
+
+      <!-- Ex 15: quiz — expressions -->
+      <div class="exercise" id="ex15">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">Un compañero propone una idea y quieres decir "tiene sentido". ¿Cuál es la más natural?</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex15',this,'wrong')">A) It has sense</button>
+          <button class="option-btn" onclick="checkQuiz('ex15',this,'correct')">B) That makes sense</button>
+          <button class="option-btn" onclick="checkQuiz('ex15',this,'wrong')">C) It's sensible</button>
+        </div>
+        <div class="feedback" id="ex15-fb"></div>
+      </div>
+
+      <!-- Ex 16: fill — keep posted -->
+      <div class="exercise" id="ex16">
+        <span class="ex-type ex-type-fill">Rellena</span>
+        <div class="ex-question">I'll keep you ___ on the progress.</div>
+        <input type="text" id="ex16-input" placeholder="Una palabra">
+        <button class="check-btn" onclick="checkFill('ex16','posted','I\\'ll keep you posted = te mantengo informado. Expresión muy común.')">Comprobar</button>
+        <div class="feedback" id="ex16-fb"></div>
+      </div>
+
+      <!-- Ex 17: quiz — asking for clarification -->
+      <div class="exercise" id="ex17">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">No has entendido algo en una reunión. ¿Cuál es la forma más educada de pedir que repitan?</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex17',this,'wrong')">A) What?</button>
+          <button class="option-btn" onclick="checkQuiz('ex17',this,'wrong')">B) Repeat that</button>
+          <button class="option-btn" onclick="checkQuiz('ex17',this,'correct')">C) Sorry, could you say that again?</button>
+        </div>
+        <div class="feedback" id="ex17-fb"></div>
+      </div>
+
+      <!-- Ex 18: translate -->
+      <div class="exercise" id="ex18">
+        <span class="ex-type ex-type-translate">Traduce</span>
+        <div class="ex-question">Traduce: "Entiendo lo que dices, pero creo que hay una forma más simple"</div>
+        <input type="text" id="ex18-input" placeholder="Escribe en inglés...">
+        <button class="check-btn" onclick="checkTranslate('ex18',['i see your point'],'but i think there\\'s a simpler way','\"I see your point\" = entiendo tu punto de vista. Muy útil para discrepar educadamente.')">Comprobar</button>
+        <div class="feedback" id="ex18-fb"></div>
+      </div>
+
+      <!-- Ex 19: fill — would you mind -->
+      <div class="exercise" id="ex19">
+        <span class="ex-type ex-type-fill">Rellena</span>
+        <div class="ex-question">___ you ___ reviewing my PR when you get a chance?</div>
+        <input type="text" id="ex19-input" placeholder="Dos palabras separadas por coma">
+        <button class="check-btn" onclick="checkFill('ex19','would, mind','Would you mind + gerundio = ¿Te importaría...? Forma educada de pedir algo.')">Comprobar</button>
+        <div class="feedback" id="ex19-fb"></div>
+      </div>
+
+      <!-- Ex 20: quiz — meantime -->
+      <div class="exercise" id="ex20">
+        <span class="ex-type ex-type-quiz">Quiz</span>
+        <div class="ex-question">¿Cuál es la forma correcta de decir "mientras tanto"?</div>
+        <div class="options">
+          <button class="option-btn" onclick="checkQuiz('ex20',this,'wrong')">A) In the meanwhile</button>
+          <button class="option-btn" onclick="checkQuiz('ex20',this,'correct')">B) In the meantime</button>
+          <button class="option-btn" onclick="checkQuiz('ex20',this,'wrong')">C) In the between time</button>
+        </div>
+        <div class="feedback" id="ex20-fb"></div>
+      </div>
+
+    </div><!-- end tab-exercises -->
+
+    <!-- ==================== TAB 4: MIS ERRORES ==================== -->
     <div id="tab-review" class="tab-content">
 
       <h2 class="section-title">🔴 Mis errores</h2>
@@ -1502,6 +1864,7 @@
   </div>
 
   <script>
+    // === Tab switching ===
     function switchTab(tabName) {
       document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1509,6 +1872,107 @@
       event.target.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // === Score management ===
+    let score = JSON.parse(localStorage.getItem('engScore') || '{"correct":0,"wrong":0,"streak":0,"maxStreak":0,"answered":{}}');
+
+    function saveScore() {
+      localStorage.setItem('engScore', JSON.stringify(score));
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      document.getElementById('sb-correct').textContent = score.correct;
+      document.getElementById('sb-wrong').textContent = score.wrong;
+      document.getElementById('sb-streak').textContent = score.streak + (score.streak >= 3 ? ' 🔥' : '');
+      const total = score.correct + score.wrong;
+      document.getElementById('sb-pct').textContent = total > 0 ? Math.round((score.correct / total) * 100) + '%' : '0%';
+    }
+
+    function resetScore() {
+      if (!confirm('¿Seguro que quieres reiniciar la puntuación?')) return;
+      score = { correct: 0, wrong: 0, streak: 0, maxStreak: 0, answered: {} };
+      saveScore();
+      document.querySelectorAll('.exercise .feedback').forEach(fb => { fb.classList.remove('show','correct','wrong'); });
+      document.querySelectorAll('.exercise .option-btn').forEach(btn => { btn.classList.remove('correct','wrong'); btn.disabled = false; });
+      document.querySelectorAll('.exercise .check-btn').forEach(btn => { btn.disabled = false; });
+      document.querySelectorAll('.exercise input[type="text"]').forEach(inp => { inp.value = ''; inp.disabled = false; inp.style.borderColor = ''; });
+    }
+
+    function markResult(exId, isCorrect, msg) {
+      if (score.answered[exId]) return;
+      score.answered[exId] = true;
+      if (isCorrect) { score.correct++; score.streak++; if (score.streak > score.maxStreak) score.maxStreak = score.streak; }
+      else { score.wrong++; score.streak = 0; }
+      const fb = document.getElementById(exId + '-fb');
+      fb.className = 'feedback show ' + (isCorrect ? 'correct' : 'wrong');
+      fb.innerHTML = (isCorrect ? '✅ ¡Correcto!' : '❌ Incorrecto.') + ' ' + msg;
+      saveScore();
+    }
+
+    // === Quiz (A/B/C) ===
+    function checkQuiz(exId, btn, result) {
+      if (score.answered[exId]) return;
+      const buttons = btn.parentElement.querySelectorAll('.option-btn');
+      buttons.forEach(b => {
+        b.disabled = true;
+        if (b.getAttribute('onclick').includes("'correct'")) b.classList.add('correct');
+      });
+      if (result === 'wrong') btn.classList.add('wrong');
+      markResult(exId, result === 'correct', '');
+    }
+
+    // === Fill the gap ===
+    function checkFill(exId, expected, tip) {
+      if (score.answered[exId]) return;
+      const input = document.getElementById(exId + '-input');
+      const userAns = input.value.trim().toLowerCase().replace(/\s*,\s*/g, ', ');
+      const expAns = expected.trim().toLowerCase();
+      const isCorrect = userAns === expAns;
+      input.disabled = true;
+      input.style.borderColor = isCorrect ? '#16a34a' : '#dc2626';
+      const btn = input.nextElementSibling;
+      btn.disabled = true;
+      markResult(exId, isCorrect, isCorrect ? tip : 'Respuesta correcta: <strong>' + expected + '</strong>. ' + tip);
+    }
+
+    // === Translate ===
+    function checkTranslate(exId, acceptedStarts, fullAnswer, tip) {
+      if (score.answered[exId]) return;
+      const input = document.getElementById(exId + '-input');
+      const userAns = input.value.trim().toLowerCase().replace(/[.,!?]+$/g, '');
+      const isCorrect = acceptedStarts.some(s => userAns.includes(s.toLowerCase()));
+      input.disabled = true;
+      input.style.borderColor = isCorrect ? '#16a34a' : '#dc2626';
+      const btn = input.nextElementSibling;
+      btn.disabled = true;
+      const fullRef = acceptedStarts[0].charAt(0).toUpperCase() + acceptedStarts[0].slice(1) + ', ' + fullAnswer;
+      markResult(exId, isCorrect, isCorrect
+        ? 'Referencia: <em>' + fullRef + '</em>'
+        : 'Respuesta sugerida: <strong>' + fullRef + '</strong>. ' + tip);
+    }
+
+    // === Enter key support for inputs ===
+    document.querySelectorAll('.exercise input[type="text"]').forEach(input => {
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+          const btn = input.nextElementSibling;
+          if (btn && !btn.disabled) btn.click();
+        }
+      });
+    });
+
+    // === Restore state on load ===
+    updateScoreboard();
+    Object.keys(score.answered).forEach(exId => {
+      const fb = document.getElementById(exId + '-fb');
+      if (fb && fb.classList.contains('show')) return;
+      const exercise = document.getElementById(exId);
+      if (!exercise) return;
+      exercise.querySelectorAll('.option-btn').forEach(b => { b.disabled = true; if (b.getAttribute('onclick').includes("'correct'")) b.classList.add('correct'); });
+      exercise.querySelectorAll('.check-btn').forEach(b => b.disabled = true);
+      exercise.querySelectorAll('input[type="text"]').forEach(i => i.disabled = true);
+    });
   </script>
 </body>
 </html>
