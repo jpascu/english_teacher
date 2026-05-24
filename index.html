@@ -495,16 +495,16 @@
 
     <!-- Conv 7 -->
     <div class="conversation">
-      <h3><span class="badge">7</span> Problemas con el pipeline</h3>
+      <h3><span class="badge">7</span> Resultados de tests</h3>
       <div class="bubble bubble-sm">
         <div class="role">Scrum Master</div>
-        <div class="en">Were you able to finish the feature?</div>
-        <div class="es">¿Pudiste terminar la feature?</div>
+        <div class="en">How did the test execution go?</div>
+        <div class="es">¿Cómo fue la ejecución de los tests?</div>
       </div>
       <div class="bubble bubble-you">
         <div class="role">You</div>
-        <div class="en">Not yet. The CI/CD pipeline was failing yesterday because of a flaky test in the integration suite. I fixed the test and re-ran the pipeline. It passed on the second run, so today I can finally merge my branch and move on to the next task.</div>
-        <div class="es">Todavía no. El pipeline de CI/CD estaba fallando ayer por un test inestable en la suite de integración. Arreglé el test y volví a ejecutar el pipeline. Pasó en la segunda ejecución, así que hoy por fin puedo mergear mi rama y pasar a la siguiente tarea.</div>
+        <div class="en">I ran the full regression suite yesterday — 10 out of 80 tests failed. Most of the failures are in the Schufa integration step. I've already identified the issue: the mock response wasn't matching the new contract. I'll fix the tests this morning and re-run the suite. I expect everything to be green by midday.</div>
+        <div class="es">Ayer ejecuté la suite completa de regresión — 10 de 80 tests fallaron. La mayoría de los fallos están en el step de integración con Schufa. Ya identifiqué el problema: la respuesta del mock no coincidía con el nuevo contrato. Arreglaré los tests esta mañana y volveré a ejecutar la suite. Espero que todo esté en verde para mediodía.</div>
       </div>
     </div>
 
@@ -684,7 +684,7 @@
         <tr><td>Parche urgente</td><td>Hotfix</td><td>I pushed a hotfix yesterday</td></tr>
         <tr><td>Bloqueo / impedimento</td><td>Blocker</td><td>I have a blocker with the external team</td></tr>
         <tr><td>Pipeline de integración</td><td>CI/CD pipeline</td><td>The pipeline is failing</td></tr>
-        <tr><td>Test inestable</td><td>Flaky test</td><td>There's a flaky test in the suite</td></tr>
+        <tr><td>Tests fallidos / pasados</td><td>Failed / Passed tests</td><td>10 out of 80 tests failed</td></tr>
         <tr><td>Microservicio</td><td>Microservice</td><td>Our microservice handles risk scoring</td></tr>
         <tr><td>Motor de decisión</td><td>Decision engine</td><td>The decision engine returned an error</td></tr>
         <tr><td>Puntuación de riesgo</td><td>Risk score / Risk scoring</td><td>The risk scoring step failed</td></tr>
