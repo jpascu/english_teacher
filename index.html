@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Standup — English Practice</title>
+  <title>English Practice — IT Risk Developer</title>
   <style>
     :root {
       --primary: #2563eb;
@@ -373,6 +373,109 @@
       .tab-content { display: block !important; }
     }
 
+    /* --- Conversation scenarios --- */
+    .scenario { 
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .scenario h3 {
+      font-size: 1.05rem;
+      color: #7c3aed;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scenario .context {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1rem;
+      padding: 0.5rem 0.75rem;
+      background: #f5f3ff;
+      border-radius: 8px;
+    }
+
+    .scenario .line {
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.4rem;
+      border-radius: 8px;
+      font-size: 0.93rem;
+    }
+
+    .scenario .line .speaker {
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .scenario .line-other { background: #f5f3ff; }
+    .scenario .line-other .speaker { color: #7c3aed; }
+    .scenario .line-you { background: var(--you-bg); }
+    .scenario .line-you .speaker { color: var(--primary); }
+
+    .scenario .line .es {
+      font-size: 0.82rem;
+      color: var(--translation);
+      font-style: italic;
+    }
+
+    .expression-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .expression-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .expression-card:hover { background: #f5f3ff; }
+
+    .expression-card .expr-en {
+      font-weight: 600;
+      color: #7c3aed;
+      font-size: 0.93rem;
+    }
+
+    .expression-card .expr-es {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .expression-card .expr-example {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-style: italic;
+      margin-top: 0.35rem;
+      padding-top: 0.35rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .sub-section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #7c3aed;
+      margin: 2rem 0 1rem;
+      padding: 0.5rem 1rem;
+      background: #f5f3ff;
+      border-radius: 8px;
+      border-left: 4px solid #7c3aed;
+    }
+
     /* --- Responsive --- */
     @media (max-width: 600px) {
       body { padding: 1rem 0.5rem; }
@@ -380,6 +483,9 @@
       .section-title { font-size: 1.25rem; }
       .score-summary { flex-direction: column; gap: 1rem; }
       .phrase-card { grid-template-columns: 1fr; }
+      .expression-grid { grid-template-columns: 1fr; }
+      .tabs { overflow-x: auto; white-space: nowrap; }
+      .tab-btn { font-size: 0.85rem; padding: 0.6rem 1rem; }
     }
   </style>
 </head>
@@ -387,13 +493,14 @@
   <div class="container">
 
     <header>
-      <h1>🎯 Daily Standup — English Practice</h1>
-      <p>IT Risk · Senior Microservices Developer · Level B1</p>
+      <h1>🎯 English Practice</h1>
+      <p>IT Risk · Senior Microservices Developer · Level B1–B2</p>
     </header>
 
     <!-- ==================== TABS ==================== -->
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('material')">📚 Material</button>
+      <button class="tab-btn active" onclick="switchTab('material')">📚 Daily</button>
+      <button class="tab-btn" onclick="switchTab('conversation')">💬 Conversación</button>
       <button class="tab-btn" onclick="switchTab('review')">🔴 Mis errores</button>
     </div>
 
@@ -897,10 +1004,245 @@
 
     </div><!-- end tab-material -->
 
-    <!-- ==================== TAB 2: MIS ERRORES ==================== -->
+    <!-- ==================== TAB 2: CONVERSACIÓN REAL ==================== -->
+    <div id="tab-conversation" class="tab-content">
+
+      <h2 class="section-title">💬 Conversaciones reales — Nivel B1–B2</h2>
+
+      <!-- Scenario 1 -->
+      <div class="scenario">
+        <h3>☕ Small talk antes de una reunión</h3>
+        <div class="context">Llegas a la sala de reuniones y hay un compañero esperando.</div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>Hey, how's it going? Did you have a good weekend?<br><span class="es">Ey, ¿qué tal? ¿Tuviste buen fin de semana?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>Yeah, not bad! I went hiking on Saturday. It was really nice. How about you?<br><span class="es">Sí, ¡no estuvo mal! Fui de senderismo el sábado. Estuvo genial. ¿Y tú?</span></div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>Nice! I just stayed in and caught up on some sleep. I really needed it.<br><span class="es">¡Qué bien! Yo me quedé en casa y descansé. Lo necesitaba.</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>I know the feeling. Last week was pretty intense with the release.<br><span class="es">Te entiendo. La semana pasada fue bastante intensa con la release.</span></div>
+      </div>
+
+      <!-- Scenario 2 -->
+      <div class="scenario">
+        <h3>🔧 Pidiendo ayuda con código</h3>
+        <div class="context">Necesitas ayuda de un compañero con un mapper que no funciona.</div>
+        <div class="line line-you"><span class="speaker">You</span><br>Hey Pedro, do you have a minute? I'm stuck with a mapper issue and I think you've dealt with something similar before.<br><span class="es">Oye Pedro, ¿tienes un momento? Estoy atascado con un problema en un mapper y creo que tú ya te enfrentaste a algo parecido.</span></div>
+        <div class="line line-other"><span class="speaker">Pedro</span><br>Sure, what's going on?<br><span class="es">Claro, ¿qué pasa?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>So the mapper is not picking up the new field from the Schufa response. I've added it to the DTO but it's still coming back as null.<br><span class="es">El mapper no está cogiendo el nuevo campo de la respuesta de Schufa. Lo he añadido al DTO pero sigue viniendo como null.</span></div>
+        <div class="line line-other"><span class="speaker">Pedro</span><br>Have you checked if the field name matches exactly? MapStruct is case-sensitive with those.<br><span class="es">¿Has comprobado si el nombre del campo coincide exactamente? MapStruct es sensible a mayúsculas con eso.</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>Oh, good point. Let me double-check that. Thanks!<br><span class="es">Ah, buen punto. Déjame comprobar eso. ¡Gracias!</span></div>
+      </div>
+
+      <!-- Scenario 3 -->
+      <div class="scenario">
+        <h3>🍕 Conversación en la pausa del café</h3>
+        <div class="context">En la cocina de la oficina charlando con un compañero.</div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>Have you tried that new restaurant near the office?<br><span class="es">¿Has probado ese restaurante nuevo cerca de la oficina?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>No, not yet. Is it any good?<br><span class="es">No, todavía no. ¿Está bien?</span></div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>Yeah, it's pretty decent. The lunch menu is around twelve euros and the portions are quite generous.<br><span class="es">Sí, está bastante bien. El menú del día cuesta unos 12 euros y las raciones son bastante generosas.</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>That sounds great. We should go one of these days. Maybe on Friday?<br><span class="es">Suena genial. Deberíamos ir un día de estos. ¿Quizás el viernes?</span></div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>Sounds like a plan!<br><span class="es">¡Hecho!</span></div>
+      </div>
+
+      <!-- Scenario 4 -->
+      <div class="scenario">
+        <h3>📞 Explicando un problema técnico a alguien no técnico</h3>
+        <div class="context">El Product Owner te pregunta por qué hay retrasos.</div>
+        <div class="line line-other"><span class="speaker">Product Owner</span><br>Hey, can you explain why the Schufa integration is taking longer than expected?<br><span class="es">Oye, ¿me puedes explicar por qué la integración con Schufa está tardando más de lo esperado?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>Sure. Basically, the external service changed their response format without much notice. So we had to update our code to handle the new fields. It's not a huge change, but we need to make sure everything is properly tested.<br><span class="es">Claro. Básicamente, el servicio externo cambió su formato de respuesta sin mucho aviso. Así que tuvimos que actualizar nuestro código para manejar los nuevos campos. No es un cambio enorme, pero necesitamos asegurarnos de que todo está bien testeado.</span></div>
+        <div class="line line-other"><span class="speaker">Product Owner</span><br>Got it. So when do you think it'll be ready?<br><span class="es">Entendido. ¿Y cuándo crees que estará listo?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>I'd say by the end of the week, assuming no surprises. I'll keep you posted.<br><span class="es">Diría que para final de semana, si no hay sorpresas. Te mantengo informado.</span></div>
+      </div>
+
+      <!-- Scenario 5 -->
+      <div class="scenario">
+        <h3>🤝 Retrospectiva — dando tu opinión</h3>
+        <div class="context">En la retro del sprint, el SM pide feedback.</div>
+        <div class="line line-other"><span class="speaker">Scrum Master</span><br>What went well this sprint and what could we improve?<br><span class="es">¿Qué fue bien este sprint y qué podríamos mejorar?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>I think the collaboration between the team was really good this sprint. We helped each other a lot with the code reviews. On the other hand, I feel like we took on too many stories. We should be more realistic with the sprint planning next time.<br><span class="es">Creo que la colaboración entre el equipo fue muy buena este sprint. Nos ayudamos mucho con las code reviews. Por otro lado, creo que cogimos demasiadas historias. Deberíamos ser más realistas con la planificación del sprint la próxima vez.</span></div>
+      </div>
+
+      <!-- Scenario 6 -->
+      <div class="scenario">
+        <h3>💻 Pair programming</h3>
+        <div class="context">Estás haciendo pair programming con un compañero.</div>
+        <div class="line line-you"><span class="speaker">You</span><br>OK so if we look at this method, I think the problem is here. See? It's catching the exception but not logging it.<br><span class="es">Vale, si miramos este método, creo que el problema está aquí. ¿Ves? Está capturando la excepción pero no la loguea.</span></div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>Yeah, you're right. We should at least log a warning. And maybe we should also rethrow it instead of swallowing it.<br><span class="es">Sí, tienes razón. Deberíamos al menos loguear un warning. Y quizás deberíamos relanzarla en vez de tragarla.</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>Agreed. Let me refactor this. What if we create a custom exception for this case?<br><span class="es">De acuerdo. Déjame refactorizar esto. ¿Y si creamos una excepción custom para este caso?</span></div>
+        <div class="line line-other"><span class="speaker">Colleague</span><br>That makes sense. Go ahead, I'll review it once you push it.<br><span class="es">Tiene sentido. Adelante, lo reviso cuando lo subas.</span></div>
+      </div>
+
+      <!-- Scenario 7 -->
+      <div class="scenario">
+        <h3>📧 Pidiendo algo por Slack/chat</h3>
+        <div class="context">Necesitas acceso a un entorno y escribes por Slack.</div>
+        <div class="line line-you"><span class="speaker">You</span><br>Hi! Could you give me access to the staging environment? I need to run some tests before the release.<br><span class="es">¡Hola! ¿Podrías darme acceso al entorno de staging? Necesito ejecutar unas pruebas antes de la release.</span></div>
+        <div class="line line-other"><span class="speaker">DevOps</span><br>Sure, what's your username? I'll set it up right away.<br><span class="es">Claro, ¿cuál es tu usuario? Lo configuro ahora mismo.</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>It's jpascu. Thanks a lot, I appreciate it!<br><span class="es">Es jpascu. ¡Muchas gracias, te lo agradezco!</span></div>
+      </div>
+
+      <!-- Scenario 8 -->
+      <div class="scenario">
+        <h3>🎯 Proponiendo una mejora al equipo</h3>
+        <div class="context">En una reunión técnica propones una mejora.</div>
+        <div class="line line-you"><span class="speaker">You</span><br>I've been thinking about something. What if we add a circuit breaker for the external bureau calls? Right now, if Schufa goes down, our whole service slows down because of the timeouts.<br><span class="es">He estado pensando en algo. ¿Y si añadimos un circuit breaker para las llamadas externas al bureau? Ahora mismo, si Schufa se cae, todo nuestro servicio se ralentiza por los timeouts.</span></div>
+        <div class="line line-other"><span class="speaker">Tech Lead</span><br>That's a good point. Do you have an idea of how we'd implement it?<br><span class="es">Buen punto. ¿Tienes idea de cómo lo implementaríamos?</span></div>
+        <div class="line line-you"><span class="speaker">You</span><br>I was thinking we could use Resilience4j. It already supports circuit breakers and retry mechanisms. I can prepare a small PoC and share it with the team next week.<br><span class="es">Estaba pensando que podríamos usar Resilience4j. Ya soporta circuit breakers y mecanismos de reintento. Puedo preparar una pequeña PoC y compartirla con el equipo la semana que viene.</span></div>
+        <div class="line line-other"><span class="speaker">Tech Lead</span><br>Sounds good. Go ahead and let's discuss it in the next refinement.<br><span class="es">Suena bien. Adelante y lo discutimos en el próximo refinamiento.</span></div>
+      </div>
+
+      <!-- ==================== EXPRESIONES ==================== -->
+      <h2 class="section-title">🗣️ Expresiones útiles — B1/B2</h2>
+
+      <h3 class="phrases-category">👋 Small talk & saludos</h3>
+      <div class="expression-grid">
+        <div class="expression-card">
+          <div class="expr-en">How's it going?</div>
+          <div class="expr-es">¿Qué tal?</div>
+          <div class="expr-example">"Hey, how's it going? Ready for the meeting?"</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Not bad / Can't complain</div>
+          <div class="expr-es">No está mal / No me quejo</div>
+          <div class="expr-example">"How are you?" — "Can't complain!"</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">I know the feeling</div>
+          <div class="expr-es">Te entiendo / Sé cómo es eso</div>
+          <div class="expr-example">"I'm exhausted." — "I know the feeling."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Sounds like a plan</div>
+          <div class="expr-es">¡Hecho! / Suena bien</div>
+          <div class="expr-example">"Lunch at 1?" — "Sounds like a plan!"</div>
+        </div>
+      </div>
+
+      <h3 class="phrases-category">💡 Dar opiniones</h3>
+      <div class="expression-grid">
+        <div class="expression-card">
+          <div class="expr-en">I think / I'd say</div>
+          <div class="expr-es">Creo que / Yo diría que</div>
+          <div class="expr-example">"I'd say it'll take about 3 story points."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">In my opinion</div>
+          <div class="expr-es">En mi opinión</div>
+          <div class="expr-example">"In my opinion, we should refactor that class."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">I feel like...</div>
+          <div class="expr-es">Siento que... / Me da la sensación de que...</div>
+          <div class="expr-example">"I feel like we took on too many stories."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">What if we...?</div>
+          <div class="expr-es">¿Y si...?</div>
+          <div class="expr-example">"What if we add a circuit breaker?"</div>
+        </div>
+      </div>
+
+      <h3 class="phrases-category">✅ Estar de acuerdo / en desacuerdo</h3>
+      <div class="expression-grid">
+        <div class="expression-card">
+          <div class="expr-en">That makes sense</div>
+          <div class="expr-es">Tiene sentido</div>
+          <div class="expr-example">"Let's use Resilience4j." — "That makes sense."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Good point</div>
+          <div class="expr-es">Buen punto</div>
+          <div class="expr-example">"Have you checked the field name?" — "Good point."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">I'm not sure about that</div>
+          <div class="expr-es">No estoy seguro de eso</div>
+          <div class="expr-example">"I'm not sure about that approach, to be honest."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">I see your point, but...</div>
+          <div class="expr-es">Entiendo lo que dices, pero...</div>
+          <div class="expr-example">"I see your point, but I think there's a simpler way."</div>
+        </div>
+      </div>
+
+      <h3 class="phrases-category">❓ Pedir aclaración</h3>
+      <div class="expression-grid">
+        <div class="expression-card">
+          <div class="expr-en">Sorry, could you say that again?</div>
+          <div class="expr-es">Perdona, ¿puedes repetir?</div>
+          <div class="expr-example">"Sorry, could you say that again? I missed the last part."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">What do you mean by...?</div>
+          <div class="expr-es">¿Qué quieres decir con...?</div>
+          <div class="expr-example">"What do you mean by 'backwards compatible'?"</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Just to make sure I understand...</div>
+          <div class="expr-es">Solo para asegurarme de que entiendo...</div>
+          <div class="expr-example">"Just to make sure I understand, you want me to add retries?"</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Could you give me an example?</div>
+          <div class="expr-es">¿Me puedes poner un ejemplo?</div>
+          <div class="expr-example">"I'm not sure I follow. Could you give me an example?"</div>
+        </div>
+      </div>
+
+      <h3 class="phrases-category">🙏 Pedir cosas / agradecer</h3>
+      <div class="expression-grid">
+        <div class="expression-card">
+          <div class="expr-en">Do you have a minute?</div>
+          <div class="expr-es">¿Tienes un momento?</div>
+          <div class="expr-example">"Hey, do you have a minute? I need your help with something."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Could you...? / Would you mind...?</div>
+          <div class="expr-es">¿Podrías...? / ¿Te importaría...?</div>
+          <div class="expr-example">"Would you mind reviewing my PR when you get a chance?"</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">I appreciate it / Thanks a lot</div>
+          <div class="expr-es">Te lo agradezco / Muchas gracias</div>
+          <div class="expr-example">"Thanks for setting up the access, I really appreciate it!"</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">I'll keep you posted</div>
+          <div class="expr-es">Te mantengo informado</div>
+          <div class="expr-example">"I'll keep you posted on the progress."</div>
+        </div>
+      </div>
+
+      <h3 class="phrases-category">🤔 Expresar duda / incertidumbre</h3>
+      <div class="expression-grid">
+        <div class="expression-card">
+          <div class="expr-en">I'm not sure yet</div>
+          <div class="expr-es">Aún no estoy seguro</div>
+          <div class="expr-example">"I'm not sure yet if the fix will work."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">It depends on...</div>
+          <div class="expr-es">Depende de...</div>
+          <div class="expr-example">"It depends on whether the API contract changes."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Let me look into it</div>
+          <div class="expr-es">Déjame investigar / mirarlo</div>
+          <div class="expr-example">"Good question. Let me look into it and get back to you."</div>
+        </div>
+        <div class="expression-card">
+          <div class="expr-en">Assuming no surprises</div>
+          <div class="expr-es">Si no hay sorpresas</div>
+          <div class="expr-example">"It should be ready by Friday, assuming no surprises."</div>
+        </div>
+      </div>
+
+    </div><!-- end tab-conversation -->
+
+    <!-- ==================== TAB 3: MIS ERRORES ==================== -->
     <div id="tab-review" class="tab-content">
 
-      <h2 class="section-title">🔴 Mis errores — Sesión de práctica</h2>
+      <h2 class="section-title">🔴 Mis errores</h2>
+
+      <div class="sub-section-title">📚 Errores en Daily Standup</div>
 
       <div class="score-summary">
         <div class="score-item">
@@ -1127,6 +1469,31 @@
           <li>Para sonar senior: <em>"I'd suggest..."</em>, <em>"I expect to..."</em>, <em>"We're done on our side"</em></li>
           <li>Demo: <strong>a quick demo</strong> suena más natural que <em>a small demo</em></li>
           <li>Expresiones útiles: <em>"it could be a bit tight"</em> = va justo de tiempo 👌</li>
+        </ul>
+      </div>
+
+      <div class="sub-section-title">💬 Errores en Conversación Real</div>
+
+      <div class="score-summary" style="background: linear-gradient(135deg, #7c3aed, #5b21b6);">
+        <div class="score-item">
+          <div class="number">—</div>
+          <div class="label">Nota media</div>
+        </div>
+        <div class="score-item">
+          <div class="number">0</div>
+          <div class="label">Rondas</div>
+        </div>
+        <div class="score-item">
+          <div class="number">0</div>
+          <div class="label">Tipos de error</div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <h4>🚀 ¡Empieza a practicar!</h4>
+        <ul>
+          <li>Los errores de las sesiones de conversación real aparecerán aquí</li>
+          <li>Practica los escenarios de la pestaña 💬 Conversación</li>
         </ul>
       </div>
 
