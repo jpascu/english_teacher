@@ -887,19 +887,19 @@
 
       <div class="score-summary">
         <div class="score-item">
-          <div class="number">6.9</div>
+          <div class="number">7.2</div>
           <div class="label">Nota media</div>
         </div>
         <div class="score-item">
-          <div class="number">7</div>
+          <div class="number">11</div>
           <div class="label">Rondas</div>
         </div>
         <div class="score-item">
-          <div class="number">14</div>
+          <div class="number">19</div>
           <div class="label">Tipos de error</div>
         </div>
         <div class="score-item">
-          <div class="number">12x</div>
+          <div class="number">16x</div>
           <div class="label">"The" olvidado</div>
         </div>
       </div>
@@ -1048,6 +1048,58 @@
         <div class="tip">💡 "The execution is fine" suena muy literal (traducción directa de "si la ejecución va bien"). Alternativas naturales: <strong>if everything goes well</strong>, <strong>if the tests pass</strong>, <strong>assuming no issues</strong>.</div>
       </div>
 
+      <!-- ERROR 15: run → ran -->
+      <div class="error-card priority-high">
+        <h4>🔴 Verbo irregular: "run" → "ran"</h4>
+        <div class="wrong">Yesterday I run the regression tests</div>
+        <div class="correct">Yesterday I ran the regression tests</div>
+        <div class="tip">💡 <strong>run</strong> es irregular: run → <strong>ran</strong> (pasado) → run (participio). Otros comunes: go→went, see→saw, take→took, give→gave.</div>
+      </div>
+
+      <!-- ERROR 16: incomplete sentence -->
+      <div class="error-card priority-high">
+        <h4>🔴 Frase incompleta: falta el verbo</h4>
+        <div class="wrong">five out of one hundred and twenty (... ¿qué?)</div>
+        <div class="correct">5 out of 120 tests failed</div>
+        <div class="correct">115 out of 120 passed</div>
+        <div class="tip">💡 Siempre completa: X out of Y tests <strong>failed / passed / broke</strong>. Sin el verbo, la frase queda colgada.</div>
+      </div>
+
+      <!-- ERROR 17: cause of → because of -->
+      <div class="error-card priority-high">
+        <h4>🔴 "cause of" → "because of" / "due to"</h4>
+        <div class="wrong">cause of a new field not mapped</div>
+        <div class="correct">because of a new unmapped field</div>
+        <div class="correct">due to a new field that wasn't mapped</div>
+        <div class="tip">💡 <strong>cause of</strong> no existe como conector. Usa <strong>because of</strong> + sustantivo, o <strong>due to</strong> + sustantivo. Y <strong>unmapped</strong> es una sola palabra en inglés técnico.</div>
+      </div>
+
+      <!-- REGLA: because vs because of -->
+      <div class="rule-box">
+        <h4>⚠️ Regla: "because" vs "because of"</h4>
+        <ul>
+          <li><strong>because</strong> + sujeto + verbo: <em>It's possible because the service is ready</em></li>
+          <li><strong>because of</strong> + sustantivo: <em>It failed because of a timeout</em></li>
+          <li><strong>due to</strong> + sustantivo (más formal): <em>The failure was due to a missing field</em></li>
+        </ul>
+      </div>
+
+      <!-- ERROR 18: a → an before vowel -->
+      <div class="error-card priority-medium">
+        <h4>⚠️ Artículo: "a" → "an" antes de vocal</h4>
+        <div class="wrong">a error case</div>
+        <div class="correct">an error case</div>
+        <div class="tip">💡 Antes de sonido de vocal → <strong>an</strong>: an error, an issue, an API, an update, an hour. Antes de consonante → <strong>a</strong>: a bug, a task, a service.</div>
+      </div>
+
+      <!-- ERROR 19: there were a → there was a -->
+      <div class="error-card priority-medium">
+        <h4>⚠️ Concordancia: "there were a" → "there was a"</h4>
+        <div class="wrong">I think there were a similar task</div>
+        <div class="correct">I think there was a similar task</div>
+        <div class="tip">💡 Sustantivo singular → <strong>was</strong>. Plural → <strong>were</strong>. <em>There <strong>was</strong> a task</em> vs <em>There <strong>were</strong> several tasks</em>.</div>
+      </div>
+
       <!-- BONUS: naturalidad -->
       <div class="rule-box">
         <h4>💎 Tips de naturalidad</h4>
@@ -1056,6 +1108,8 @@
           <li>Matiza estados: una PR está <strong>open</strong> (abierta) vs <strong>ready for review</strong> (lista para revisar)</li>
           <li>Verbos más naturales: <strong>look into</strong> (investigar), <strong>wrap up</strong> (terminar), <strong>pick up</strong> (coger tarea)</li>
           <li>Para sonar senior: <em>"I'd suggest..."</em>, <em>"I expect to..."</em>, <em>"We're done on our side"</em></li>
+          <li>Demo: <strong>a quick demo</strong> suena más natural que <em>a small demo</em></li>
+          <li>Expresiones útiles: <em>"it could be a bit tight"</em> = va justo de tiempo 👌</li>
         </ul>
       </div>
 
