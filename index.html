@@ -603,6 +603,69 @@
       border-left: 4px solid #059669;
     }
 
+    /* --- Daily Turn styles --- */
+    .daily-turn-phrase {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .daily-turn-phrase .phrase-number {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #fff;
+      font-size: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .daily-turn-phrase .phrase-content {
+      flex: 1;
+    }
+
+    .daily-turn-phrase .phrase-en {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .daily-turn-phrase .phrase-pronunciation {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      background: var(--bg);
+      border-radius: 6px;
+      border-left: 3px solid #3b82f6;
+    }
+
+    .daily-turn-phrase .phrase-tips {
+      font-size: 0.83rem;
+      color: #059669;
+      background: #f0fdf4;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border-left: 3px solid #059669;
+    }
+
+    .daily-turn-phrase .phrase-tips strong {
+      color: #047857;
+    }
+
     /* --- Responsive --- */
     @media (max-width: 600px) {
       body { padding: 1rem 0.5rem; }
@@ -630,6 +693,7 @@
       <button class="tab-btn active" onclick="switchTab('material')">📚 Daily</button>
       <button class="tab-btn" onclick="switchTab('conversation')">💬 Conversación</button>
       <button class="tab-btn" onclick="switchTab('exercises')">🎮 Ejercicios</button>
+      <button class="tab-btn" onclick="switchTab('daily-turn')">🎤 Mi Turno</button>
       <button class="tab-btn" onclick="switchTab('review')">🔴 Mis errores</button>
     </div>
 
@@ -1599,7 +1663,84 @@
 
     </div><!-- end tab-exercises -->
 
-    <!-- ==================== TAB 4: MIS ERRORES ==================== -->
+    <!-- ==================== TAB 4: DAILY TURN ==================== -->
+    <div id="tab-daily-turn" class="tab-content">
+
+      <h2 class="section-title">🎤 Mi Daily Turn</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">Frases listas para tu daily de mañana. Diseñadas para nivel B1 — claras, fáciles de pronunciar.</p>
+
+      <!-- Today's Work Summary -->
+      <div class="rule-box" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 4px solid #0ea5e9;">
+        <h4>📋 Resumen de tu trabajo (ayer)</h4>
+        <ul style="margin-bottom: 0;">
+          <li>🔧 <strong>Producción</strong>: Fichero preaprobados mal nombrado → renombrado con Miguel/Gian ✅</li>
+          <li>📊 <strong>Schufa</strong>: Iniciada replicación cálculos → Javi: mergear parent pom 14 primero</li>
+          <li>🔀 <strong>PRs</strong>: models-zinia y dtrace-library aprobadas ✅, taker pendiente aprobación Javi</li>
+          <li>🚨 <strong>FCM AML</strong>: Desarrollo completado ✅, falta desplegar en dev y probar (necesito postman)</li>
+        </ul>
+      </div>
+
+      <!-- Tomorrow's Daily Phrases -->
+      <h3 class="exercise-category">🎤 Frases para mañana (Martes)</h3>
+
+      <div class="daily-turn-phrase">
+        <div class="phrase-number">1️⃣</div>
+        <div class="phrase-content">
+          <div class="phrase-en">"Yesterday I fixed a production issue with the preapproved files. The problem was the filename, so I renamed it and the process worked correctly. I worked on this with Miguel and Gian."</div>
+          <div class="phrase-pronunciation">*Yesterday I fixed a production issue with the preapproved files. The problem was the filename, so I renamed it and the process worked correctly. I worked on this with Miguel and Gian.*</div>
+          <div class="phrase-tips">
+            <strong>Key words:</strong> preapproved files (pri-a-PRU-ved), worked correctly (WARK co-RECT-li)
+          </div>
+        </div>
+      </div>
+
+      <div class="daily-turn-phrase">
+        <div class="phrase-number">2️⃣</div>
+        <div class="phrase-content">
+          <div class="phrase-en">"I started the Schufa calculations task to replicate the cash loans logic. After talking with Javi, I need to merge the parent pom 14 branch first, because the current model version is too old."</div>
+          <div class="phrase-pronunciation">*I started the Schufa calculations task to replicate the cash loans logic. After talking with Javi, I need to merge the parent pom 14 branch first, because the current model version is too old.*</div>
+          <div class="phrase-tips">
+            <strong>Key words:</strong> Schufa calculations (SHU-fa cal-cu-LAI-shons), merge the branch (MERCH la BRANCH)
+          </div>
+        </div>
+      </div>
+
+      <div class="daily-turn-phrase">
+        <div class="phrase-number">3️⃣</div>
+        <div class="phrase-content">
+          <div class="phrase-en">"I sent the PRs for the taker lending release. The models-zinia and dtrace-library PRs are already approved by Javi. I'm just waiting for his approval on the taker PR to merge to main."</div>
+          <div class="phrase-pronunciation">*I sent the PRs for the taker lending release. The models-zinia and dtrace-library PRs are already approved by Javi. I'm just waiting for his approval on the taker PR to merge to main.*</div>
+          <div class="phrase-tips">
+            <strong>Key words:</strong> waiting for approval (WEI-ting for a-PROO-val), merge to main (MERCH tu main)
+          </div>
+        </div>
+      </div>
+
+      <div class="daily-turn-phrase">
+        <div class="phrase-number">4️⃣</div>
+        <div class="phrase-content">
+          <div class="phrase-en">"I also started the FCM AML sanctions task. The development is done, but I still need to deploy it to dev and test it. For that, I need the project postman collection — I only have the cash loans one right now."</div>
+          <div class="phrase-pronunciation">*I also started the FCM AML sanctions task. The development is done, but I still need to deploy it to dev and test it. For that, I need the project postman collection — I only have the cash loans one right now.*</div>
+          <div class="phrase-tips">
+            <strong>Key words:</strong> deploy to dev (di-PLOY tu DEV), postman collection (POST-man co-LEC-shon)
+          </div>
+        </div>
+      </div>
+
+      <!-- Tips for delivery -->
+      <div class="rule-box">
+        <h4>🎤 Tips para tu daily</h4>
+        <ul>
+          <li>🐌 <strong>Habla lento</strong> — estas frases son claras pero tienen palabras técnicas</li>
+          <li>⏸️ <strong>Pausa después de cada punto</strong> — da tiempo a que procesen</li>
+          <li>🤝 <strong>"I worked on this with..."</strong> → suena más colaborativo</li>
+          <li>⏳ <strong>"I'm just waiting for..."</strong> → muestra que estás bloqueado pero con causa clara</li>
+        </ul>
+      </div>
+
+    </div><!-- end tab-daily-turn -->
+
+    <!-- ==================== TAB 5: MIS ERRORES ==================== -->
     <div id="tab-review" class="tab-content">
 
       <h2 class="section-title">🔴 Mis errores</h2>
