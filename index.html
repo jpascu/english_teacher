@@ -678,6 +678,53 @@
       color: #047857;
     }
 
+    /* --- Q&A Practice styles --- */
+    .qa-section {
+      margin-bottom: 2rem;
+    }
+
+    .qa-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .qa-block h4 {
+      color: #3b82f6;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    .qa-item {
+      margin-bottom: 1rem;
+    }
+
+    .qa-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .qa-item .question {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.25rem;
+    }
+
+    .qa-item .answer {
+      font-size: 0.85rem;
+      color: var(--text);
+      padding: 0.5rem 0.75rem;
+      background: #f9fafb;
+      border-left: 3px solid #3b82f6;
+      border-radius: 4px;
+      font-style: italic;
+    }
+
     /* --- Responsive --- */
     @media (max-width: 600px) {
       body { padding: 1rem 0.5rem; }
@@ -1739,6 +1786,59 @@
         </div>
       </div>
 
+      <!-- Q&A Practice -->
+      <h3 class="exercise-category">🎯 Práctica Preguntas y Respuestas</h3>
+
+      <div class="qa-section">
+        <div class="qa-block">
+          <h4>1️⃣ Producción</h4>
+          <div class="qa-item">
+            <div class="question">Q: What did you work on yesterday?</div>
+            <div class="answer">A: "Yesterday I fixed a problem in production with the preapproved files. The filename was wrong, so I renamed it and it worked. I worked on this with Miguel and Gian."</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">Q: How did you fix the production issue?</div>
+            <div class="answer">A: "The filename was wrong, so I renamed it and that fixed the problem."</div>
+          </div>
+        </div>
+
+        <div class="qa-block">
+          <h4>2️⃣ Schufa</h4>
+          <div class="qa-item">
+            <div class="question">Q: What's happening with the Schufa task?</div>
+            <div class="answer">A: "I started the Schufa task to copy the cash loans calculations. Javi and I reviewed it and we decided to merge the parent pom 14 branch first because the model version is old."</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">Q: Why do you need to merge the parent pom 14 branch?</div>
+            <div class="answer">A: "Because the current model version is too old."</div>
+          </div>
+        </div>
+
+        <div class="qa-block">
+          <h4>3️⃣ PRs</h4>
+          <div class="qa-item">
+            <div class="question">Q: Any updates on the taker lending release?</div>
+            <div class="answer">A: "Also, I sent the PRs for the taker lending release. The models-zinia and dtrace-library PRs are approved by Javi. I'm waiting for his approval for the taker PR to merge to main."</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">Q: What's blocking the taker PR?</div>
+            <div class="answer">A: "I'm just waiting for Javi's approval to merge it to main."</div>
+          </div>
+        </div>
+
+        <div class="qa-block">
+          <h4>4️⃣ FCM AML</h4>
+          <div class="qa-item">
+            <div class="question">Q: What about the FCM AML sanctions task?</div>
+            <div class="answer">A: "Finally, I started the FCM AML sanctions task. The development is done, but I need to deploy it to dev and test it. I need the postman collection for that — I only have the cash loans one."</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">Q: What do you need to complete the FCM AML task?</div>
+            <div class="answer">A: "I need the postman collection to deploy it to dev and test it. Right now I only have the cash loans one."</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Tips for delivery -->
       <div class="rule-box">
         <h4>🎤 Tips para tu daily</h4>
@@ -1747,6 +1847,7 @@
           <li>⏸️ <strong>Pausa después de cada punto</strong> — da tiempo a que procesen</li>
           <li>🤝 <strong>"I worked on this with..."</strong> → suena más colaborativo</li>
           <li>⏳ <strong>"I'm just waiting for..."</strong> → muestra que estás bloqueado pero con causa clara</li>
+          <li>🎯 <strong>Practica estas preguntas</strong> — así sabrás qué te pueden preguntar</li>
         </ul>
       </div>
 
